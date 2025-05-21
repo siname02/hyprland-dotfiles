@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Define preload variables
+declare -A wallpapers=(
+    [1]="$HOME/.local/share/wallpapers/wall_anime_8K.png"
+    [2]="$HOME/.local/share/wallpapers/lofi.jpeg"
+    [3]="$HOME/.local/share/wallpapers/walking-girl-on-water.jpg"
+    [4]="$HOME/.local/share/wallpapers/train4.png"
+    [5]="$HOME/.local/share/wallpapers/train.png"
+    [6]="$HOME/.local/share/wallpapers/City-Rain.png"
+    [7]="$HOME/.local/share/wallpapers/sundown-over-water.jpg"
+    [8]="$HOME/.local/share/wallpapers/northern-night.jpg"
+    [9]="$HOME/.local/share/wallpapers/island.jpg"
+    [10]="$HOME/.local/share/wallpapers/island_2.jpg"
+    [11]="$HOME/.local/share/wallpapers/car.png"
+    [12]="$HOME/.local/share/wallpapers/train3.png"
+)
+
+socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" | while read -r line; do
+    workspace_number=$(echo "$line" | grep '^workspace>>' | awk -F'>>' '{print $2}')
+
+    if [[ -n "$workspace_number" ]]; then
+        wallpaper=${wallpapers[$workspace_number]}
+        echo "Workspace: $workspace_number, Wallpaper: $wallpaper"
+        hyprctl hyprpaper wallpaper eDP-1,"$wallpaper"
+    fi
+done
